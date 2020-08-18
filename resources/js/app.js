@@ -36,7 +36,7 @@ const toast = swal.mixin({
     toast: true,
     position: 'top-end',
     showConfirmButton: false,
-    timer: 2000,
+    timer: 3000,
     timerProgressBar: true,
     onOpen: (toast) => {
       toast.addEventListener('mouseenter', Swal.stopTimer)
@@ -58,13 +58,19 @@ const router = new VueRouter({
     routes // short for `routes: routes`
 })
 
+//using uppercase letter function
 Vue.filter('upText', function(text){
     return text.charAt(0).toUpperCase() + text.slice(1);
 })
+//
 
+//Date format function
 Vue.filter('myDate', function(created){
     return moment(created).format('MMMM Do YYYY');
 })
+//
+
+window.Fire = new Vue();
 
 /**
  * The following block of code may be used to automatically register your
