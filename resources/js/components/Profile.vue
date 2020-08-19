@@ -136,13 +136,13 @@
     },
     methods: {
       getProfilePhoto(){
-        return "./img/profile/"+ this.form.photo;
-        this.created();
+        let photo = (this.form.photo.length > 200) ? this.form.photo : "img/profile/"+ this.form.photo;
+        return photo;
       },
       updateInfo(){
         this.$Progress.start();
         if(this.form.password == ""){
-          this.form.password = 'undefined';     
+          this.form.password = undefined;     
         }
         this.form.put('api/profile')
         .then(() => {
